@@ -1,163 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chetra | Full-Stack Developer Intern</title>
+    <title>Bunthoeun Chetra | Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .bento-card { transition: all 0.5s ease; border: 1px solid rgba(0, 0, 0, 0.05); }
-        .bento-card:hover { transform: scale(1.02); box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.1); }
-        .gradient-bg { background: radial-gradient(circle at top right, #eff6ff 0%, #ffffff 100%); }
-        .tech-pill { border: 1px solid rgba(37, 99, 235, 0.2); }
-        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        .accent-green {
+            color: #22c55e;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #22c55e;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .profile-container {
+            position: relative;
+        }
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            border-radius: 32px;
+            filter: blur(20px);
+            opacity: 0.25;
+            z-index: -1;
+        }
+        .profile-img {
+            transition: all 0.5s ease;
+            border: 8px solid #18181b;
+        }
+        .profile-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: #22c55e;
+        }
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            transform: scale(1.05);
+            background-color: #22c55e;
+            color: black;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+        }
     </style>
 </head>
+<body class="bg-zinc-950 text-zinc-200">
 
-<body class="bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-700">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-500 rounded-xl flex items-center justify-center text-black font-bold text-xl">BC</div>
+                <span class="font-bold text-xl tracking-tighter">BUNTHOEUN</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link hover:text-emerald-400 transition">About</a>
+                <a href="#skills" class="nav-link hover:text-emerald-400 transition">Skills</a>
+                <a href="#projects" class="nav-link hover:text-emerald-400 transition">Projects</a>
+                <a href="#contact" class="nav-link hover:text-emerald-400 transition">Contact</a>
+            </div>
 
-    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-fit">
-        <div class="px-4 md:px-8 py-3 bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full flex justify-center gap-4 md:gap-8 text-[9px] md:text-xs font-bold uppercase tracking-widest text-slate-500">
-            <a href="#about" class="hover:text-blue-600 transition">About</a>
-            <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-            <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-            <a href="#contact" class="text-blue-600 hover:opacity-70 transition">Hire Me</a>
+            <!-- Download CV -->
+            <a href="CV_Bunthoeun_Chetra.pdf" 
+               download="CV_Bunthoeun_Chetra.pdf"
+               class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition flex items-center gap-2 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v-4m0 0l4 4m-4-4l4-4m12 4v4m0 0l-4-4m4 4l-4 4" />
+                </svg>
+                <span class="hidden sm:inline">Download CV</span>
+                <span class="sm:hidden">CV</span>
+            </a>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                ☰
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-zinc-950 border-t border-zinc-800">
+            <div class="flex flex-col py-4 px-6 space-y-4 text-sm font-medium">
+                <a href="#about" class="py-2 hover:text-emerald-400 transition">About</a>
+                <a href="#skills" class="py-2 hover:text-emerald-400 transition">Skills</a>
+                <a href="#projects" class="py-2 hover:text-emerald-400 transition">Projects</a>
+                <a href="#contact" class="py-2 hover:text-emerald-400 transition">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <section id="about" class="min-h-screen flex items-center justify-center gradient-bg px-6 pt-24 pb-12">
-        <div class="max-w-4xl text-center">
-            <div class="relative w-32 h-32 md:w-44 md:h-44 mx-auto mb-8">
-                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 animate-spin-slow blur-md opacity-20"></div>
-                <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <img src="image.png" alt="Bunthoeun Chetra" class="w-full h-full object-cover">
+    <!-- Hero Section -->
+    <section id="about" class="hero-bg min-h-screen flex items-center pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+            <div class="space-y-6 md:space-y-8 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-3xl text-xs md:text-sm mx-auto md:mx-0">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    Junior Frontend Developer • Open to Opportunities
                 </div>
-            </div>
-
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] md:text-xs font-bold mb-6">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-                </span>
-                APPLYING FOR WEB DEVELOPER INTERN 
-            </div>
-
-            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-500">
-                Bunthoeun Chetra.
-            </h1>
-
-            <p class="text-lg md:text-2xl text-slate-500 font-light max-w-2xl mx-auto leading-relaxed mb-10 px-4">
-                Full-Stack Developer specializing in <span class="text-slate-900 font-semibold italic underline decoration-blue-500 decoration-2 underline-offset-4">Laravel, PHP & React.js.</span> Building scalable systems from database to UI.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center px-8">
-                <a href="#projects" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:shadow-2xl hover:-translate-y-1 transition-all text-sm md:text-base">View My Systems</a>
-                <a href="#contact" class="px-8 py-4 border border-slate-200 bg-white rounded-2xl font-bold hover:bg-slate-50 hover:-translate-y-1 transition-all text-sm md:text-base">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-16 md:py-24 px-6 max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div class="bento-card bg-slate-50 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] md:col-span-2">
-                <h3 class="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    Development Stack
-                </h3>
-                <div class="flex flex-wrap gap-2 md:gap-3">
-                    <span class="tech-pill px-4 py-2 bg-blue-600 text-white rounded-xl text-xs md:text-sm font-bold shadow-sm">Laravel (MVC)</span>
-                    <span class="tech-pill px-4 py-2 bg-white rounded-xl text-xs md:text-sm font-bold text-blue-600 shadow-sm ring-1 ring-blue-100">PHP Core</span>
-                    <span class="tech-pill px-4 py-2 bg-white rounded-xl text-xs md:text-sm font-semibold shadow-sm text-slate-700">MySQL / CRUD</span>
-                    <span class="tech-pill px-4 py-2 bg-white rounded-xl text-xs md:text-sm font-semibold shadow-sm text-slate-700">React.js</span>
-                    <span class="tech-pill px-4 py-2 bg-white rounded-xl text-xs md:text-sm font-semibold shadow-sm text-slate-700">Tailwind CSS</span>
-                </div>
-                <p class="mt-6 text-xs md:text-sm text-slate-500 font-medium tracking-wide leading-relaxed">
-                    Experienced in building complex logic like **POS Systems**, managing relational databases, and connecting backends to modern frontends.
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-none">
+                    Hi, I'm <span class="accent-green">Bunthoeun Chetra</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-zinc-400 max-w-lg mx-auto md:mx-0">
+                    Passionate about building modern web applications with 
+                    <span class="accent-green font-semibold">React.js</span>, 
+                    <span class="accent-green font-semibold">Tailwind CSS</span>, 
+                    and backend technologies like PHP + MySQL + AJAX.
                 </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects" 
+                       class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition text-base flex items-center justify-center gap-3">
+                        View My Projects
+                        <span class="text-2xl">→</span>
+                    </a>
+                    <a href="#contact" 
+                       class="px-8 py-4 border border-zinc-700 hover:border-emerald-500 rounded-2xl font-semibold transition text-base">
+                        Let's Talk
+                    </a>
+                </div>
             </div>
-
-            <div class="bento-card bg-blue-600 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] text-white shadow-lg">
-                <h3 class="text-xl md:text-2xl font-bold mb-6">Internship Goals</h3>
-                <ul class="space-y-3 md:space-y-4 font-semibold opacity-90 text-sm md:text-base">
-                    <li class="flex items-center gap-3"><div class="w-2 h-2 bg-blue-300 rounded-full"></div> Creative Problem Solving</li>
-                    <li class="flex items-center gap-3"><div class="w-2 h-2 bg-blue-300 rounded-full"></div> API Architecture</li>
-                    <li class="flex items-center gap-3"><div class="w-2 h-2 bg-blue-300 rounded-full"></div> Rapid Prototyping</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-extrabold mb-16 tracking-tight flex items-center gap-4">
-            Core Projects <span class="h-px bg-slate-100 flex-1"></span>
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="group">
-                <div class="overflow-hidden rounded-[2.5rem] mb-6 aspect-video flex items-center justify-center border border-slate-200 bg-slate-50">
-                    <img src="image4.png" alt="Laravel POS System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+            <!-- Profile Photo - Better for Mobile -->
+            <div class="flex justify-center md:justify-end pt-6 md:pt-0">
+                <div class="profile-container w-72 md:w-[380px]">
+                    <div class="bg-[#0f172a] p-3 md:p-4 rounded-[2rem] shadow-2xl">
+                        <img src="image.png" alt="Bunthoeun Chetra" 
+                             class="profile-img w-full h-auto rounded-3xl object-cover">
+                    </div>
                 </div>
-                <h4 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Laravel POS System</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A complete Point of Sale solution with inventory tracking, dynamic sales reports, and secure MVC architecture.</p>
-                <div class="flex gap-2">
-                    <span class="text-[10px] font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">LARAVEL</span>
-                    <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-full">MYSQL</span>
-                </div>
-            </div>
-
-            <div class="group">
-                <div class="overflow-hidden rounded-[2.5rem] mb-6 aspect-video flex items-center justify-center border border-slate-200 bg-slate-50">
-                    <img src="image2.png" alt="PHP Admin Panel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
-                </div>
-                <h4 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">PHP Management System</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Robust backend management featuring secure authentication, dynamic database CRUD, and session handling.</p>
-                <div class="flex gap-2">
-                    <span class="text-[10px] font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">CORE PHP</span>
-                    <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-full">ADMIN UI</span>
-                </div>
-            </div>
-
-            <div class="group">
-                <div class="overflow-hidden rounded-[2.5rem] mb-6 aspect-video flex items-center justify-center border border-slate-200 bg-slate-50">
-                    <img src="image3.png" alt="React E-commerce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
-                </div>
-                <h4 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Frontend React UI</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Modern interface focusing on high performance, API-driven data rendering, and clean user experience.</p>
-                <div class="flex gap-2">
-                    <span class="text-[10px] font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">REACT.JS</span>
-                    <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-full">TAILWIND</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 md:py-24 px-6 bg-slate-50 border-t border-slate-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Ready to contribute.</h2>
-            <p class="text-slate-500 text-base md:text-lg font-medium mb-12">I am eager to bring my Laravel and Frontend skills to Seed Media Solutions.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="mailto:chetranicky@gmail.com" class="p-8 bg-white border border-slate-200 rounded-3xl hover:border-blue-500 transition-all flex flex-col items-center">
-                    <h3 class="text-xl font-bold mb-2">Email</h3>
-                    <p class="text-blue-600 font-bold">chetranicky@gmail.com</p>
-                </a>
-                <a href="https://t.me/chett4244" target="_blank" class="p-8 bg-white border border-slate-200 rounded-3xl hover:border-[#26A5E4] transition-all flex flex-col items-center">
-                    <h3 class="text-xl font-bold mb-2">Telegram</h3>
-                    <p class="text-[#26A5E4] font-bold">@chett4244</p>
-                </a>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-white text-center text-slate-400 text-[10px] font-bold uppercase tracking-widest">
-        B.CHETRA • FULL-STACK INTERN • 2026
+    <!-- Skills -->
+    <section id="skills" class="py-16 md:py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-5 md:px-6">
+            <h2 class="text-4xl font-bold mb-10 md:mb-12 text-center">My Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800">
+                    <span class="block text-emerald-400 text-sm font-medium mb-4">Frontend</span>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">HTML5</span>
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">CSS3</span>
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">JavaScript</span>
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">React.js</span>
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800">
+                    <span class="block text-emerald-400 text-sm font-medium mb-4">Backend & Database</span>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">PHP</span>
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">MySQL</span>
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">AJAX</span>
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">Laravel</span>
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800">
+                    <span class="block text-emerald-400 text-sm font-medium mb-4">Languages</span>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-3"><span class="text-emerald-500">●</span> Khmer (Native)</li>
+                        <li class="flex items-center gap-3"><span class="text-emerald-500">●</span> English (Intermediate)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800 flex items-center">
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        I build both beautiful frontend interfaces and functional backend systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-16 md:py-24 bg-zinc-950">
+        <div class="max-w-6xl mx-auto px-5 md:px-6">
+            <h2 class="text-4xl font-bold mb-10 md:mb-12 text-center">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Internship -->
+                <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
+                    <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">Frontend Developer Intern</h3>
+                    <p class="text-emerald-400 mb-6 text-sm md:text-base">ETEC Center • 10 Weeks</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">React.js</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind CSS</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">REST API</span>
+                    </div>
+                    <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
+                        <li>Built responsive interfaces with React & Tailwind</li>
+                        <li>Integrated REST APIs for dynamic content</li>
+                        <li>Created reusable components</li>
+                    </ul>
+                </div>
+
+                <!-- PHP MySQL AJAX -->
+                <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
+                    <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">PHP MySQL AJAX System</h3>
+                    <p class="text-emerald-400 mb-6 text-sm md:text-base">Academic Project</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">PHP</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">MySQL</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">AJAX</span>
+                    </div>
+                    <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
+                        <li>Dynamic web application with real-time updates</li>
+                        <li>CRUD operations using PHP and MySQL</li>
+                        <li>Asynchronous data handling with AJAX</li>
+                    </ul>
+                </div>
+
+                <!-- E-commerce -->
+                <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
+                    <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">E-commerce Website</h3>
+                    <p class="text-emerald-400 mb-6 text-sm md:text-base">React.js + Tailwind CSS</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">React.js</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind CSS</span>
+                    </div>
+                    <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
+                        <li>Fully responsive e-commerce platform</li>
+                        <li>Product listing and shopping cart</li>
+                        <li>API integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 md:py-24 bg-zinc-900 border-t border-zinc-800">
+        <div class="max-w-4xl mx-auto px-5 md:px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Work Together</h2>
+            <p class="text-zinc-400 text-base md:text-xl mb-12 max-w-md mx-auto">
+                I'm currently looking for new opportunities to apply my React, PHP, and full-stack skills.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="mailto:chetranicky@gmail.com" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4">✉️</div>
+                    <div class="font-semibold mb-1">Email</div>
+                    <div class="text-sm text-zinc-400 group-hover:text-emerald-400 break-all">chetranicky@gmail.com</div>
+                </a>
+                
+                <a href="https://github.com/chett705" target="_blank" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4">🐙</div>
+                    <div class="font-semibold mb-1">GitHub</div>
+                    <div class="text-sm text-zinc-400 group-hover:text-emerald-400">@chett705</div>
+                </a>
+                
+                <a href="https://t.me/chett4244" target="_blank" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4">📱</div>
+                    <div class="font-semibold mb-1">Telegram</div>
+                    <div class="text-sm text-zinc-400 group-hover:text-emerald-400">@chett4244</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 bg-black text-center text-zinc-500 text-xs md:text-sm">
+        © 2026 Bunthoeun Chetra • Personal Portfolio
     </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Change icon between hamburger and close
+            if (mobileMenu.classList.contains('hidden')) {
+                menuButton.textContent = '☰';
+            } else {
+                menuButton.textContent = '✕';
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuButton.textContent = '☰';
+            });
+        });
+    </script>
 </body>
 </html>

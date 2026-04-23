@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bunthoeun Chetra | Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
         }
+
         .hero-bg {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
         }
+
         .accent-green {
             color: #22c55e;
         }
+
         .card-hover {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
         }
+
         .nav-link {
             position: relative;
         }
+
         .nav-link:after {
             content: '';
             position: absolute;
@@ -37,12 +45,15 @@
             background-color: #22c55e;
             transition: width 0.3s ease;
         }
+
         .nav-link:hover:after {
             width: 100%;
         }
+
         .profile-container {
             position: relative;
         }
+
         .profile-container::before {
             content: '';
             position: absolute;
@@ -53,17 +64,21 @@
             opacity: 0.25;
             z-index: -1;
         }
+
         .profile-img {
             transition: all 0.5s ease;
             border: 8px solid #18181b;
         }
+
         .profile-img:hover {
             transform: scale(1.05) rotate(2deg);
             border-color: #22c55e;
         }
+
         .tech-badge {
             transition: all 0.3s ease;
         }
+
         .tech-badge:hover {
             transform: scale(1.05);
             background-color: #22c55e;
@@ -74,6 +89,7 @@
         .mobile-menu {
             display: none;
         }
+
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -81,16 +97,19 @@
         }
     </style>
 </head>
+
 <body class="bg-zinc-950 text-zinc-200">
 
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800">
         <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-emerald-500 rounded-xl flex items-center justify-center text-black font-bold text-xl">BC</div>
+                <div
+                    class="w-8 h-8 bg-emerald-500 rounded-xl flex items-center justify-center text-black font-bold text-xl">
+                    BC</div>
                 <span class="font-bold text-xl tracking-tighter">BUNTHOEUN</span>
             </div>
-            
+
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                 <a href="#about" class="nav-link hover:text-emerald-400 transition">About</a>
@@ -100,11 +119,12 @@
             </div>
 
             <!-- Download CV -->
-            <a href="CV_Bunthoeun_Chetra.pdf" 
-               download="CV_Bunthoeun_Chetra.pdf"
-               class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition flex items-center gap-2 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v-4m0 0l4 4m-4-4l4-4m12 4v4m0 0l-4-4m4 4l-4 4" />
+            <a href="CV_Bunthoeun_Chetra.pdf" download="CV_Bunthoeun_Chetra.pdf"
+                class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition flex items-center gap-2 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v-4m0 0l4 4m-4-4l4-4m12 4v4m0 0l-4-4m4 4l-4 4" />
                 </svg>
                 <span class="hidden sm:inline">Download CV</span>
                 <span class="sm:hidden">CV</span>
@@ -131,41 +151,42 @@
     <section id="about" class="hero-bg min-h-screen flex items-center pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
             <div class="space-y-6 md:space-y-8 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-3xl text-xs md:text-sm mx-auto md:mx-0">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-3xl text-xs md:text-sm mx-auto md:mx-0">
                     <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                     Junior Frontend Developer • Open to Opportunities
                 </div>
-                
+
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-none">
                     Hi, I'm <span class="accent-green">Bunthoeun Chetra</span>
                 </h1>
-                
+
                 <p class="text-lg md:text-xl text-zinc-400 max-w-lg mx-auto md:mx-0">
-                    Passionate about building modern web applications with 
-                    <span class="accent-green font-semibold">React.js</span>, 
-                    <span class="accent-green font-semibold">Tailwind CSS</span>, 
+                    Passionate about building modern web applications with
+                    <span class="accent-green font-semibold">React.js</span>,
+                    <span class="accent-green font-semibold">Tailwind CSS</span>,
                     and backend technologies like PHP + MySQL + AJAX.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#projects" 
-                       class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition text-base flex items-center justify-center gap-3">
+                    <a href="#projects"
+                        class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition text-base flex items-center justify-center gap-3">
                         View My Projects
                         <span class="text-2xl">→</span>
                     </a>
-                    <a href="#contact" 
-                       class="px-8 py-4 border border-zinc-700 hover:border-emerald-500 rounded-2xl font-semibold transition text-base">
+                    <a href="#contact"
+                        class="px-8 py-4 border border-zinc-700 hover:border-emerald-500 rounded-2xl font-semibold transition text-base">
                         Let's Talk
                     </a>
                 </div>
             </div>
-            
+
             <!-- Profile Photo - Better for Mobile -->
             <div class="flex justify-center md:justify-end pt-6 md:pt-0">
                 <div class="profile-container w-72 md:w-[380px]">
                     <div class="bg-[#0f172a] p-3 md:p-4 rounded-[2rem] shadow-2xl">
-                        <img src="image.png" alt="Bunthoeun Chetra" 
-                             class="profile-img w-full h-auto rounded-3xl object-cover">
+                        <img src="image.png" alt="Bunthoeun Chetra"
+                            class="profile-img w-full h-auto rounded-3xl object-cover">
                     </div>
                 </div>
             </div>
@@ -180,22 +201,32 @@
                 <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800">
                     <span class="block text-emerald-400 text-sm font-medium mb-4">Frontend</span>
                     <div class="flex flex-wrap gap-3">
-                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">HTML5</span>
-                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">CSS3</span>
-                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">JavaScript</span>
-                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">React.js</span>
-                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">Tailwind CSS</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">HTML5</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">CSS3</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">JavaScript</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">React.js</span>
+                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">Tailwind
+                            CSS</span>
                     </div>
                 </div>
 
                 <div class="bg-zinc-950 p-6 md:p-8 rounded-3xl card-hover border border-zinc-800">
                     <span class="block text-emerald-400 text-sm font-medium mb-4">Backend & Database</span>
                     <div class="flex flex-wrap gap-3">
-                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">PHP</span>
-                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">MySQL</span>
-                        <span class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">AJAX</span>
-                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">Laravel</span>
-                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">REST APIs</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">PHP</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">MySQL</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-emerald-600 text-black font-medium rounded-2xl">AJAX</span>
+                        <span
+                            class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">Laravel</span>
+                        <span class="tech-badge px-5 py-2.5 bg-zinc-900 text-sm rounded-2xl border border-zinc-700">REST
+                            APIs</span>
                     </div>
                 </div>
 
@@ -203,7 +234,8 @@
                     <span class="block text-emerald-400 text-sm font-medium mb-4">Languages</span>
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-center gap-3"><span class="text-emerald-500">●</span> Khmer (Native)</li>
-                        <li class="flex items-center gap-3"><span class="text-emerald-500">●</span> English (Intermediate)</li>
+                        <li class="flex items-center gap-3"><span class="text-emerald-500">●</span> English
+                            (Intermediate)</li>
                     </ul>
                 </div>
 
@@ -220,16 +252,18 @@
     <section id="projects" class="py-16 md:py-24 bg-zinc-950">
         <div class="max-w-6xl mx-auto px-5 md:px-6">
             <h2 class="text-4xl font-bold mb-10 md:mb-12 text-center">Featured Projects</h2>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Internship -->
                 <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
                     <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
-                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">Frontend Developer Intern</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">
+                        Frontend Developer Intern</h3>
                     <p class="text-emerald-400 mb-6 text-sm md:text-base">ETEC Center • 10 Weeks</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">React.js</span>
-                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind CSS</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind
+                            CSS</span>
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">REST API</span>
                     </div>
                     <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
@@ -242,28 +276,42 @@
                 <!-- PHP MySQL AJAX -->
                 <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
                     <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
-                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">PHP MySQL AJAX System</h3>
-                    <p class="text-emerald-400 mb-6 text-sm md:text-base">Academic Project</p>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">
+                        POS Store Management System</h3>
+                    <p class="text-emerald-400 mb-2 text-sm md:text-base">PHP + MySQL + AJAX</p>
+                    <p class="text-zinc-500 text-xs mb-6">Academic Project • Live Demo</p>
+
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">PHP</span>
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">MySQL</span>
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">AJAX</span>
                     </div>
-                    <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
-                        <li>Dynamic web application with real-time updates</li>
-                        <li>CRUD operations using PHP and MySQL</li>
-                        <li>Asynchronous data handling with AJAX</li>
+
+                    <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside mb-6">
+                        <li>Built a full-featured Point of Sale (POS) system with real-time inventory and sales
+                            management</li>
+                        <li>Implemented dynamic CRUD operations using PHP and MySQL</li>
+                        <li>Used AJAX for asynchronous data handling without page refresh</li>
+                        <li>Designed clean backend logic and user-friendly interface</li>
                     </ul>
+
+                    <a href="https://posstore.free.nf/" target="_blank"
+                        class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
+                         View Live Demo
+                        <span class="text-xs">(admin / 123admin)</span>
+                    </a>
                 </div>
 
                 <!-- E-commerce -->
                 <div class="bg-zinc-900 rounded-3xl p-6 md:p-8 card-hover border border-zinc-800 group">
                     <div class="h-2 bg-emerald-500 w-12 rounded mb-6"></div>
-                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">E-commerce Website</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2 group-hover:text-emerald-400 transition-colors">
+                        E-commerce Website</h3>
                     <p class="text-emerald-400 mb-6 text-sm md:text-base">React.js + Tailwind CSS</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">React.js</span>
-                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind CSS</span>
+                        <span class="px-4 py-1 bg-emerald-900/60 text-emerald-400 text-xs rounded-full">Tailwind
+                            CSS</span>
                     </div>
                     <ul class="text-zinc-300 text-sm space-y-2 list-disc list-inside">
                         <li>Fully responsive e-commerce platform</li>
@@ -282,22 +330,26 @@
             <p class="text-zinc-400 text-base md:text-xl mb-12 max-w-md mx-auto">
                 I'm currently looking for new opportunities to apply my React, PHP, and full-stack skills.
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="mailto:chetranicky@gmail.com" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
-                    <div class="text-emerald-400 text-3xl mb-4">✉️</div>
+                <a href="mailto:chetranicky@gmail.com"
+                    class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4"></div>
                     <div class="font-semibold mb-1">Email</div>
-                    <div class="text-sm text-zinc-400 group-hover:text-emerald-400 break-all">chetranicky@gmail.com</div>
+                    <div class="text-sm text-zinc-400 group-hover:text-emerald-400 break-all">chetranicky@gmail.com
+                    </div>
                 </a>
-                
-                <a href="https://github.com/chett705" target="_blank" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
-                    <div class="text-emerald-400 text-3xl mb-4">🐙</div>
+
+                <a href="https://github.com/chett705" target="_blank"
+                    class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4"></div>
                     <div class="font-semibold mb-1">GitHub</div>
                     <div class="text-sm text-zinc-400 group-hover:text-emerald-400">@chett705</div>
                 </a>
-                
-                <a href="https://t.me/chett4244" target="_blank" class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
-                    <div class="text-emerald-400 text-3xl mb-4">📱</div>
+
+                <a href="https://t.me/chett4244" target="_blank"
+                    class="bg-zinc-950 p-6 md:p-8 rounded-3xl border border-zinc-800 hover:border-emerald-500 transition group">
+                    <div class="text-emerald-400 text-3xl mb-4"></div>
                     <div class="font-semibold mb-1">Telegram</div>
                     <div class="text-sm text-zinc-400 group-hover:text-emerald-400">@chett4244</div>
                 </a>
@@ -316,7 +368,7 @@
 
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            
+
             // Change icon between hamburger and close
             if (mobileMenu.classList.contains('hidden')) {
                 menuButton.textContent = '☰';
@@ -335,4 +387,5 @@
         });
     </script>
 </body>
+
 </html>

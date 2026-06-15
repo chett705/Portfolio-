@@ -94,14 +94,6 @@
                 <a href="#contact" class="nav-link text-zinc-400 hover:text-white transition-colors">Contact</a>
             </div>
 
-            <!-- <a href="CV_Bunthoeun_Chetra.pdf" download="CV_Bunthoeun_Chetra.pdf" 
-               class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 text-sm shadow-lg shadow-emerald-500/10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                <span>Download CV</span>
-            </a> -->
-
             <button id="mobile-menu-button" class="md:hidden text-2xl focus:outline-none text-zinc-400 hover:text-white">
                 ☰
             </button>
@@ -118,8 +110,8 @@
         </div>
     </nav>
 
-    <section id="about" class="hero-bg min-h-screen flex items-center pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" class="hero-bg min-h-screen flex flex-col justify-center pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-12 items-center w-full">
             
             <div class="space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-3xl text-xs md:text-sm mx-auto md:mx-0">
@@ -155,7 +147,40 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="max-w-5xl mx-auto px-5 w-full mt-16 md:mt-24" data-aos="fade-up" data-aos-delay="200">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-zinc-900/40 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-zinc-900 shadow-2xl">
+                
+                <div class="text-center p-2 border-r border-zinc-800/50 last:border-0 md:even:border-r-0 md:last:border-r-0">
+                    <div class="text-3xl md:text-5xl font-extrabold text-white tracking-tight flex items-center justify-center gap-0.5">
+                        <span class="counter text-emerald-400" data-target="6">0</span><span class="text-emerald-500">+</span>
+                    </div>
+                    <p class="text-xs md:text-sm font-medium text-zinc-500 uppercase tracking-wider mt-2">Projects Completed</p>
+                </div>
+
+                <div class="text-center p-2 md:border-r border-zinc-800/50 structure-fix border-none-mobile">
+                    <div class="text-3xl md:text-5xl font-extrabold text-white tracking-tight flex items-center justify-center gap-0.5">
+                        <span class="counter text-emerald-400" data-target="14">0</span><span class="text-emerald-500"> Weeks</span>
+                    </div>
+                    <p class="text-xs md:text-sm font-medium text-zinc-500 uppercase tracking-wider mt-2">Internship Exp.</p>
+                </div>
+
+                <div class="text-center p-2 border-r border-zinc-800/50 last:border-0">
+                    <div class="text-3xl md:text-5xl font-extrabold text-white tracking-tight flex items-center justify-center gap-0.5">
+                        <span class="counter text-emerald-400" data-target="6">0</span><span class="text-emerald-500">+</span>
+                    </div>
+                    <p class="text-xs md:text-sm font-medium text-zinc-500 uppercase tracking-wider mt-2">Tech Stack Mastered</p>
+                </div>
+
+                <div class="text-center p-2">
+                    <div class="text-3xl md:text-5xl font-extrabold text-white tracking-tight flex items-center justify-center gap-0.5">
+                        <span class="counter text-emerald-400" data-target="100">0</span><span class="text-emerald-500">%</span>
+                    </div>
+                    <p class="text-xs md:text-sm font-medium text-zinc-500 uppercase tracking-wider mt-2">Commitment</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -370,6 +395,44 @@
                 menuButton.textContent = '☰';
             });
         });
+
+        // Dynamic Counters Script
+        const counters = document.querySelectorAll('.counter');
+        const speed = 60; // Lower number means faster counting acceleration
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    // Logic to adjust increment scaling for large/small values
+                    const inc = Math.max(Math.ceil(target / speed), 1);
+
+                    if (count < target) {
+                        counter.innerText = count + inc > target ? target : count + inc;
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger animation when counters scroll into viewpoint 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    startCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if(counters.length > 0) {
+            observer.observe(counters[0].parentElement.parentElement);
+        }
     </script>
 </body>
 
